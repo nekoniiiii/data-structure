@@ -9,14 +9,14 @@ struct employee{
 employee Employee[MAX];
 int i, loop=0;
 
-int menu();			  // menampilkan menu
+int menu();		// menampilkan menu
 void readFile();	// membaca file kemudian memasukkan data ke dalam array
 void insert();		// memasukkan data baru 
 void remove();		// menghapus data
-void swap();		  // mengganti data
+void swap();		// mengganti data
 void readArr();		// membaca array kemudian memasukkan data ke dalam file
 bool compName(employee str1, employee str2);	// membandingkan nama
-bool compNip(employee str1, employee str2);		// membandingkan nip
+bool compNip(employee str1, employee str2);	// membandingkan nip
 void removeName(string data);	// menghapus data nama
 void removeNip(string data);	// menghapus data nip
 
@@ -24,8 +24,8 @@ void readArr(){
 	ofstream myfile;
 	myfile.open ("nip.txt");
     
-    for(int i=0; i<loop; i++){
-    	myfile << Employee[i].name << "\n" << Employee[i].nip << "\n";
+    	for(int i=0; i<loop; i++){
+    		myfile << Employee[i].name << "\n" << Employee[i].nip << "\n";
 	}
 	myfile.close();
 	
@@ -36,7 +36,7 @@ void readArr(){
 	
 	fout.open("temp.txt", ios::out);
 	while(getline(fin, str)){ 
-    	while(str.length()==0) getline(fin, str);   
+    		while(str.length()==0) getline(fin, str);   
 		fout << str << endl;
 	}
 	
@@ -93,10 +93,10 @@ void removeNip(string data){
 	}
     
 	if(i<loop){
-    	loop--;
-    	for(int j=i; j<loop; j++){
-    		Employee[j].name = Employee[j+1].name;
-    		Employee[j].nip = Employee[j+1].nip;
+    		loop--;
+    		for(int j=i; j<loop; j++){
+    			Employee[j].name = Employee[j+1].name;
+    			Employee[j].nip = Employee[j+1].nip;
 		}
 	} else{
 		cout << "Maaf, data tidak ditemukan.\n";
@@ -113,10 +113,10 @@ void removeName(string data){
 	}
     
 	if(i<loop){
-    	loop--;
-    	for(int j=i; j<loop; j++){
-    		Employee[j].name = Employee[j+1].name;
-    		Employee[j].nip = Employee[j+1].nip;
+    		loop--;
+    		for(int j=i; j<loop; j++){
+    			Employee[j].name = Employee[j+1].name;
+    			Employee[j].nip = Employee[j+1].nip;
 		}
 	} else{
 		cout << "Maaf, data tidak ditemukan.\n";
@@ -178,23 +178,23 @@ bool compName(employee str1, employee str2){
 
 void printData(){
 	for(int i=0; i<loop; i++){
-    	cout << Employee[i].name << "\t" << Employee[i].nip << endl;
+    		cout << Employee[i].name << "\t" << Employee[i].nip << endl;
 	}
 	menu();
 }
 
 void readFile(){ 
-    string line;
+    	string line;
 	ifstream myfile("nip.txt");
 	
 	if(myfile.is_open()){
         while (!myfile.eof()){
-            getline(myfile, line);
-            Employee[loop].name = line;
+            	getline(myfile, line);
+            	Employee[loop].name = line;
             
-            getline(myfile, line);
-            Employee[loop].nip = line;
-            loop++;
+            	getline(myfile, line);
+            	Employee[loop].nip = line;
+            	loop++;
         }
         myfile.close();
     }
@@ -206,40 +206,40 @@ void readFile(){
 int menu(){
 	int option;
 	cout << "====== Layanan Data Pegawai ======\n";
-    cout << "Pilih opsi:\n";
-    cout << "(1) Daftar pegawai dalam urut nama\n";
-    cout << "(2) Daftar pegawai dalam urut NIP\n";
-    cout << "(3) Masukkan data baru\n";
-    cout << "(4) Hapus data\n";
-    cout << "(5) Ubah data\n";
-    cout << "(6) Keluar dari layanan\n";
+    	cout << "Pilih opsi:\n";
+    	cout << "(1) Daftar pegawai dalam urut nama\n";
+    	cout << "(2) Daftar pegawai dalam urut NIP\n";
+    	cout << "(3) Masukkan data baru\n";
+    	cout << "(4) Hapus data\n";
+    	cout << "(5) Ubah data\n";
+    	cout << "(6) Keluar dari layanan\n";
 
-    cin >> option;
+    	cin >> option;
 	cout << "==================================\n";
-    switch (option){
-    	case 1:
-    		sort(Employee, Employee+loop, compName);
+    	switch (option){
+    		case 1:
+    			sort(Employee, Employee+loop, compName);
 			printData();
-    		break;
-    	case 2:
-    		sort(Employee, Employee+loop, compNip);
+    			break;
+    		case 2:
+    			sort(Employee, Employee+loop, compNip);
 			printData();
-    		break;
-    	case 3:
-    		insert();
-    		break;
-    	case 4:
-    		remove();
-    		break;
-    	case 5:
-    		swap();
-    		break;
-    	case 6:
-    		cout << "Terima kasih telah menggunakan layanan ini ^ ^";
-    		return 0;
-    	default:
-        	cout << "Mohon maaf, menu tidak tersedia. Mohon ulangi kembali\n";
-        	menu();
+    			break;
+    		case 3:
+    			insert();
+    			break;
+    		case 4:
+    			remove();
+    			break;
+    		case 5:
+    			swap();
+    			break;
+    		case 6:
+    			cout << "Terima kasih telah menggunakan layanan ini ^ ^";
+    			return 0;
+    		default:
+        		cout << "Mohon maaf, menu tidak tersedia. Mohon ulangi kembali\n";
+        		menu();
     }
 }
 
