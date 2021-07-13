@@ -13,7 +13,7 @@ employee Employee;
 ifstream fin;
 ofstream fout;
 
-int menu();			// menampilkan menu
+int menu();		// menampilkan menu
 void readFile();	// membaca file kemudian memasukkan data ke dalam list
 void printData();	// menampilkan data
 void insert();		// memasukkan data baru
@@ -21,14 +21,14 @@ void remove();		// menghapus data
 void swap();		// mengganti data
 void readList();	// membaca list kemudian memasukkan data ke dalam file
 bool compName(employee str1, employee str2);	// membandingkan nama
-bool compNip(employee str1, employee str2);		// membandingkan nip
+bool compNip(employee str1, employee str2);	// membandingkan nip
 
 void readList(){
 	// overwrite data ke dalam file dari list
 	ofstream myfile;
 	myfile.open("nip.txt");
     
-    it = mylist.begin();
+    	it = mylist.begin();
 	while(it != mylist.end()){
 		myfile << it->name << "\n" << it->nip << "\n";
 		it++;
@@ -180,7 +180,7 @@ void readFile(){
             getline(myfile, line);
             Employee.nip = line;
 
-			mylist.push_back(Employee);
+		mylist.push_back(Employee);
         }
         myfile.close();
     }
